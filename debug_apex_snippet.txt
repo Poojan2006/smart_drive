@@ -1,0 +1,14 @@
+// Copy this code into the Developer Console > Debug > Open Execute Anonymous Window
+
+Drowsiness_Log__c log = new Drowsiness_Log__c();
+log.Location__latitude__s = 37.7749;
+log.Location__longitude__s = -122.4194;
+log.Risk_Level__c = 'Apex Test Record';
+log.Timestamp__c = DateTime.now();
+
+try {
+    insert log;
+    System.debug('SUCCESS: Record created with ID: ' + log.Id);
+} catch (DmlException e) {
+    System.debug('FAILURE: ' + e.getMessage());
+}
